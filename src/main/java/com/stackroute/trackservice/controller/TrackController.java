@@ -37,6 +37,11 @@ public class TrackController {
         Track getAllTracks=trackService.getAllTracks();
         return new ResponseEntity<>(getAllTracks,HttpStatus.CREATED);
     }*/
+  @GetMapping("tracks/")
+    public ResponseEntity<?> getAllTracks(){
+      List<Track> getAllTrackList=trackService.getAllTracks();
+      return new ResponseEntity<>(getAllTrackList,HttpStatus.CREATED);
+  }
 
 }
 

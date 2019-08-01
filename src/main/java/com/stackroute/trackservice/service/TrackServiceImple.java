@@ -33,6 +33,10 @@ public class TrackServiceImple implements TrackService {
        return trackList;
     }*/
 
-
+@Override
+    public List<Track> getAllTracks(){
+    List<Track> trackList=trackRepository.findAll();
+    return trackList;
+}
 
 }

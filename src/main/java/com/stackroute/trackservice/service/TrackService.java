@@ -8,5 +8,5 @@ public interface TrackService {
     public Track saveTrack(Track track);
     public Track getTrackById(int trackId);
 //    public List<Track> getAllTracks();
-
+    public List<Track> getAllTracks();
 }
