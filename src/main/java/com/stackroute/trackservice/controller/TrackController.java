@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(value = "api/v1/")
@@ -42,6 +43,13 @@ public class TrackController {
       List<Track> getAllTrackList=trackService.getAllTracks();
       return new ResponseEntity<>(getAllTrackList,HttpStatus.CREATED);
   }
+
+  @DeleteMapping("trackde/{trackId}")
+    public ResponseEntity<?> trackDelete(@PathVariable int trackId){
+      Optional<Track> trackDelete=trackService.trackDeleteById(trackId);
+      return new ResponseEntity<>(trackDelete,HttpStatus.CREATED);
+  }
+
 
 }
 

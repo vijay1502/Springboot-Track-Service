@@ -4,6 +4,7 @@ import com.stackroute.trackservice.domain.Track;
 import com.stackroute.trackservice.repository.TrackRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
@@ -37,6 +38,13 @@ public class TrackServiceImple implements TrackService {
     public List<Track> getAllTracks(){
     List<Track> trackList=trackRepository.findAll();
     return trackList;
+}
+
+@Override
+public Optional<Track> trackDeleteById(int trackId) {
+    Optional<Track> trackDelete = trackRepository.findById(trackId);
+    trackRepository.deleteById(trackId);
+    return trackDelete;
 }
 
 }
