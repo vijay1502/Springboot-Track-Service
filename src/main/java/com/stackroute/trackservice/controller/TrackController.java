@@ -49,7 +49,11 @@ public class TrackController {
       Optional<Track> trackDelete=trackService.trackDeleteById(trackId);
       return new ResponseEntity<>(trackDelete,HttpStatus.CREATED);
   }
-
+@PatchMapping("trackPatch/{trackId}")
+    public ResponseEntity<?> updateTrack(@RequestParam Track track){
+      Track trackUpdate=trackService.updateTrack(track);
+      return new ResponseEntity<>(trackUpdate,HttpStatus.CREATED);
+}
 
 }
 

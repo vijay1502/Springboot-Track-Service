@@ -14,6 +14,8 @@ import java.util.Optional;
 @Service
 public class TrackServiceImple implements TrackService {
     private TrackRepository trackRepository;
+
+
     @Autowired
     public TrackServiceImple(TrackRepository trackRepository){
         this.trackRepository=trackRepository;
@@ -46,5 +48,10 @@ public Optional<Track> trackDeleteById(int trackId) {
     trackRepository.deleteById(trackId);
     return trackDelete;
 }
-
+@Override
+    public Track updateTrack(Track track){
+   trackRepository.delete(track);
+   Track trackOptional=trackRepository.save(track);
+    return trackOptional;
+}
 }
