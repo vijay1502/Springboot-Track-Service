@@ -48,10 +48,11 @@ public Optional<Track> trackDeleteById(int trackId) {
     trackRepository.deleteById(trackId);
     return trackDelete;
 }
-@Override
-    public Track updateTrack(Track track){
-   trackRepository.delete(track);
-   Track trackOptional=trackRepository.save(track);
-    return trackOptional;
-}
+    @Override
+    public Track updateTrack(int id, Track track) {
+        Track update = trackRepository.findById(id).get();
+        update.setTrackName(track.getTrackName());
+        update.setComments(track.getComments());
+        return trackRepository.save(track);
+    }
 }
